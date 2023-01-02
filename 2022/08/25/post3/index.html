@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Anchor Test | Breezy</title>
+
+  
+  <meta name="author" content="Breezy">
+  
+
+  
+  <meta name="description" content="昨晚更新 Hexo 后，发现新版 Hexo 自带的主题 Landscape 不错，就决定使用这一款主题。同时，对 Landscape 中一些不太符合自己使用习惯的地方进行了修改。
+目录：
+自动切换 banner 图片
+更改引文样式
+更改标题样式
+优化字体方案
+修改分享按钮
+替换 Google Javascript 库和字体库">
+  
+
+  
+  
+  <meta name="keywords" content="test">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Anchor Test"/>
+
+  <meta property="og:site_name" content="Breezy"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Breezy" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  <!-- 引入 fancybox（图片缩放插件） -->
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <!-- 引入 mathjax（数学公式支持） -->
+  
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+  
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+  </script>
+  
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+  </script>
+  
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+    
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Breezy</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Anchor Test</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2022/08/25/post3/" rel="bookmark">
+        <time class="entry-date published" datetime="2022-08-25T02:59:18.803Z">
+          2022-08-25
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>昨晚更新 Hexo 后，发现新版 Hexo 自带的主题 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-theme-landscape">Landscape</a> 不错，就决定使用这一款主题。同时，对 Landscape 中一些不太符合自己使用习惯的地方进行了修改。</p>
+<h4 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h4><ol>
+<li><a href="#toc_0">自动切换 banner 图片</a></li>
+<li><a href="#toc_1">更改引文样式</a></li>
+<li><a href="#toc_2">更改标题样式</a></li>
+<li><a href="#toc_3">优化字体方案</a></li>
+<li><a href="#toc_4">修改分享按钮</a></li>
+<li><a href="#toc_5">替换 Google Javascript 库和字体库</a></li>
+</ol>
+<span id="more"></span>
+
+<h1 id="toc_0">1. 自动切换 banner 图片</h1>
+
+<p>更换主题后，打开网页，首先看到的是顶部大大的 banner 图片。不过，默认的 banner，只能固定显示一张图片。如果这张图片能替换成自己作品的照片，并且能自动随机切换，效果应该会更好。</p>
+<p>上网搜索了一下，刚好有人有同样的想法。使用 Javascript 即可实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    &lt;% <span class="keyword">if</span> (theme.<span class="property">switch_banner</span>)&#123; %&gt;</span><br><span class="line">    <span class="keyword">var</span> number_of_banners = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">var</span> randnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * number_of_banners + <span class="number">1</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;banner&quot;</span>).<span class="property">style</span>.<span class="property">backgroundImage</span> = <span class="string">&quot;url(/css/images/banner&quot;</span> + randnum + <span class="string">&quot;.jpg)&quot;</span>;</span><br><span class="line">    &lt;% &#125; <span class="keyword">else</span> &#123; %&gt;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;banner&quot;</span>).<span class="property">style</span>.<span class="property">backgroundImage</span> = <span class="string">&quot;url(/css/images/banner.jpg)&quot;</span>;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>详细的操作步骤请参考：<a target="_blank" rel="noopener" href="http://kuangqi.me/tricks/hexo-banner-auto-switcher/">自动随机切换Hexo博客的banner图片</a></p>
+<h1 id="toc_1">2. 更改引文样式</h1>
+
+<p>Hexo 默认的引文样式为大字号居中显示，但是对我来说，<code>blockquote</code> 被更多地用来展示内容的层级关系。所以，我对 <code>blockquote</code> 的样式进行了简单的修改：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-family</span>: font-sans</span><br><span class="line">border-left: <span class="number">5px</span> solid <span class="number">#DDD</span></span><br><span class="line">margin: <span class="number">15px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span></span><br><span class="line">padding-left: <span class="number">20px</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如图所示：</p>
+<p><img src="/images/2015/02/hexo_theme_blockquote.png" alt="引文样式"></p>
+<h1 id="toc_2">3. 更改标题样式</h1>
+
+<p>在一级标题下加上浅色背景，二级标题下加浅色下划线，能使文章层次更加清晰，便于阅读。可在 <code>article.styl</code> 的 <code>.article-entry</code> 合适位置添加如下内容：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">7px</span> <span class="number">6px</span> <span class="number">7px</span> <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#dddddd</span>;</span><br><span class="line"><span class="selector-tag">h2</span></span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> <span class="number">#d8d8d8</span> solid;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="/images/2015/02/hexo_theme_title.png" alt="标题样式"></p>
+<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.windson.in/?p=573">关于可能吧排版的一些分享</a></li>
+<li><a target="_blank" rel="noopener" href="http://wangyueblog.com/2010/08/27/blog-post-layout/">再谈博客文章排版</a></li>
+</ul>
+<h1 id="toc_3">4. 优化字体方案</h1>
+
+<p>为了是网页在各个操作系统中都能显示出高质量的中英文字体，对默认的字体方案稍作修改：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font</span>-sans = &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans CN&quot;, &quot;WenQuanYi Micro Hei&quot;, Arial, sans-serif</span><br></pre></td></tr></table></figure>
+
+<p>通过上述代码，可以在 OS X 操作系统下默认显示 Hiragino Sans GB （冬青黑体简体中文），Windows 操作系统下默认显示微软雅黑，Linux 操作系统下默认显示思源黑体或文泉驿微米黑。但在 iOS 等系统里，默认只能以 黑体-简 显示中文，显示效果不太理想（尤其是显示粗体文本时）。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/19911793">如何保证网页的字体在各平台都尽量显示为最高质量的黑体？</a></li>
+<li><a target="_blank" rel="noopener" href="http://ptbsare.org/2014/09/24/%E8%B0%88%E8%B0%88%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%AD%97%E4%BD%93%E8%AE%BE%E5%AE%9A/">谈谈网页设计中的字体设定</a></li>
+</ul>
+<h1 id="toc_4">5. 修改分享按钮</h1>
+
+<p>Landscape 主题提供了分享功能，可以将文章分享到 Facebook，Twitter 等网站。但在国内，这些网站用户不多，所以我将其替换成了新浪微博等国内社交网站。</p>
+<p>在 <code>source/js/script.js</code> 中，可以找到 <code>&#39;&lt;div class=&quot;article-share-links&quot;&gt;&#39;,</code>，下面的四个链接就是 Facebook 等社交网站的分享链接。将其替换成如下代码，即可实现分享到国内社交网站：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x27;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://service.weibo.com/share/share.php?&amp;title=&#x27; + encodedUrl + &#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;article-share-sina&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&quot;微博&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#x27;,</span><br><span class="line">&#x27;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://share.renren.com/share/buttonshare.do?link=&#x27; + encodedUrl + &#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;article-share-renren&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&quot;人人&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#x27;,</span><br><span class="line">&#x27;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#x27; + encodedUrl + &#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;article-share-qq&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&quot;QQ 空间&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#x27;,</span><br><span class="line">&#x27;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://v.t.qq.com/share/share.php?url=&#x27; + encodedUrl + &#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;article-share-tencent&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&quot;腾讯微博&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#x27;,</span><br></pre></td></tr></table></figure>
+
+<p>同时，还需要替换四个网站的图标。本主题使用 Font Awesome 来显示图标，但内置的 Fone Awesome 版本较旧，无法显示 QQ、腾讯微博等图标，所以，需要<a target="_blank" rel="noopener" href="http://fortawesome.github.io/Font-Awesome/">下载最新版 Font Awesome</a>，替换掉 <code>source/fonts</code> 中相关文件，并在 <code>source/css/_variables.styl</code> 中的 <code>font-icon-version</code> 修改为最新的 Font Awesome 版本号。</p>
+<p>然后，在 <code>source/css/_partial/article.styl</code> 中，找到四段以 <code>.article-share-***</code> 开头的代码，替换为如下内容：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-share-sina</span></span><br><span class="line">  <span class="keyword">@extend</span> $article-share-link</span><br><span class="line">  &amp;:before</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;\f18a&quot;</span></span><br><span class="line">  &amp;:<span class="attribute">hover</span></span><br><span class="line">    <span class="attribute">background</span>: color-sina</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> darken(color-sina, <span class="number">20%</span>)</span><br><span class="line"></span><br><span class="line">.article-share-qq</span><br><span class="line">  @extend $article-share-link</span><br><span class="line">  &amp;:before</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;\f1d6&quot;</span></span><br><span class="line">  &amp;:<span class="attribute">hover</span></span><br><span class="line">    <span class="attribute">background</span>: color-qq</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> darken(color-qq, <span class="number">20%</span>)</span><br><span class="line"></span><br><span class="line">.article-share-renren</span><br><span class="line">  @extend $article-share-link</span><br><span class="line">  &amp;:before</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;\f18b&quot;</span></span><br><span class="line">  &amp;:<span class="attribute">hover</span></span><br><span class="line">    <span class="attribute">background</span>: color-renren</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> darken(color-renren, <span class="number">20%</span>)</span><br><span class="line"></span><br><span class="line">.article-share-tencent</span><br><span class="line">  @extend $article-share-link</span><br><span class="line">  &amp;:before</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;\f1d5&quot;</span></span><br><span class="line">  &amp;:<span class="attribute">hover</span></span><br><span class="line">    <span class="attribute">background</span>: color-tencent</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> darken(color-tencent, <span class="number">20%</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后，找到 <code>source/css/_variables.styl</code> 中 <code>Colors</code> 部分，最后四行分别为四个社交网站图标的背景色，可根据这些网站的主题色修改。这是我的修改结果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">color</span>-sina = <span class="selector-id">#ea0020</span></span><br><span class="line"><span class="attribute">color</span>-qq = <span class="selector-id">#518adb</span></span><br><span class="line"><span class="attribute">color</span>-renren = <span class="selector-id">#406ccb</span></span><br><span class="line"><span class="attribute">color</span>-tencent = <span class="selector-id">#33b5eb</span></span><br></pre></td></tr></table></figure>
+
+<p>修改后的效果如下：</p>
+<p><img src="/images/2015/02/hexo_theme_share.png" alt="分享按钮"></p>
+<h4 id="参考资料：-1"><a href="#参考资料：-1" class="headerlink" title="参考资料："></a>参考资料：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://fortawesome.github.io/Font-Awesome/cheatsheet/">Font Awesome Cheatsheet</a></li>
+</ul>
+<h1 id="toc_5">6. 替换 Google Javascript 库和字体库</h1>
+
+<p>本主题使用 Google 提供的 JS 库和字体，但 Google API 在国内基本无法访问，导致网站部分功能失效。而新浪、百度、微软、360 均提供类似的服务，可以在在国内正常使用。</p>
+<p>找到 <code>layout/_partial/after-footer.ejs</code> 和 <code>layout/_partial/head.ejs</code> 两个文件，将其中的 <code>googleapis</code> 替换为 <code>useso</code> 即可。</p>
+<h4 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料:"></a>参考资料:</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/20227463">国内有哪些靠谱的 Javascript 库 CDN 可用？</a></li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/test/">test</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2023 Breezy
+    
+  </p>
+  <!-- 引入 fancybox（图片缩放插件） -->
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
